@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="toDoList">
+<head>
+	<meta charset="utf-8">
+	<title>To do List</title>
+	<link rel="stylesheet" type="text/css" href="css/formatacao.css">
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
+
+	<script src= "lib/angular/angular.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controller/toDoListCrtl.js"></script>
+</head>
+<body ng-controller="toDoListCrtl as self" background="css\imagem\fundo.jpeg" bgproperties="fixed" id="fundo">
+	
+	<div>
+		<p class="barNav">
+			<a href="myList.html" >Home</a>
+			<a href="https://github.com/barrosrocha/lab2-si.git">Git Hub</a>
+			<a href="contato.html">Contato</a>
+		</p>
+	</div>
+		
+
+	<div class="main">
+
+		<div id="conlunaEsquerda">
+			<form name="tarefaForm">
+				<input class="form-control" type="text" ng-model="tarefa.nome" name="tarefa" placeholder="Nova Tarefa" ng-required="true" ng-minlength="5" ng-maxlength="40"/>
+			</form>
+			<div ng-show="tarefaForm.tarefa.$error.minlength" class="alert alert-info">
+				A tarefa deve conter no Mínimo 5 caractéres.
+			</div>
+			<div ng-show="tarefaForm.tarefa.$error.maxlength" class="alert alert-danger">
+				A tarefa deve conter no Máximo 40 caractéres.
+			</div>
+			<button class="btn btn-primary btn-block" ng-click="self.adicionarTarefa(tarefa)" ng-disabled="tarefaForm.$invalid">Adicionar Tarefa.</button>
+			<button class="btn btn-danger btn-block" ng-click="self.limparTarefas()" ng-show="self.tarefas.length > 0">Remover Todas as Tarefas.</button>
+			
+		</div>
+
+		<div class="centro">
+			<h2 id="cabecalho">{{self.cabecalho}}</h2>
+			<hr/>
+			<input class="form-control" type="text" ng-model="busca" placeholder="Buscar Tarefa!"/>
+			<table class="table" >
+				<tr ng-show="self.tarefas.length > 0">
+					<th id="cabecalhoTable">Concluído</th>
+					<th id="cabecalhoTable">Tarefas</th>
+					<th id="cabecalhoTable">Excluir</th>
+				</tr>
+				<tr ng-class="{concluida: tarefa.concluida,removida: tarefa.removida}" ng-repeat="tarefa in self.tarefas | filter:busca | orderBy:'nome'">
+					<td><input type="checkbox" ng-click="self.calcularPorcentagem()" ng-model="tarefa.concluida"></td>
+					<td>{{tarefa.nome}}</td>
+					<td>
+						<button id="botaoRemove" class="btn" ng-click="self.removerTarefa(tarefa)" ng-model="tarefa.removida"></button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+
+		<div class="progresso" id="colunaDireita"> <!-- Progresso -->
+			<div class="col-md-12 container">
+				<h4>Progresso</h4>
+			    <progress class="col-md-100 row progress progress-warning col-md-offset-50" id="barraProgresso" style="width:100%" value="0" max="100"></progress>
+			    <h4 class="row text text-center">{{ self.getPorcentagem() }}% concluído.</h4>
+			</div>		
+		</div>
+
+	</div>
+</body>
+</html>

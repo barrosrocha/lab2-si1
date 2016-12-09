@@ -1,0 +1,116 @@
+.jumbotron {
+	width: 400px;
+	text-align: center;
+	margin-top: 25px;
+	margin-left: auto;
+	margin-right: auto;;
+}
+
+#cabecalho{
+	font-weight: bold;	
+	text-shadow: 1px 1px 1px black;
+}
+
+.table{
+	 margin-top: 10px;
+}
+
+#cabecalhoTable{
+	text-align: center;
+	font: 18px  Courier;
+	font-weight: bold;
+}
+
+.barNav a {
+	font: 40px  Courier;
+	color: #FFFFFF;
+	text-decoration: none;
+	background:  black;
+	text-align: center;
+	padding: 1px 5px;
+	margin-right: -1px;
+	border: 0px solid #000000;
+}
+  
+.barNav a:hover {
+	color: #666666;
+	background: #FCFCFC;
+	border: 1px solid #666666;
+	text-decoration: none;
+}
+
+.main{
+	width: 1050px;
+	margin: 0 auto;
+}
+
+.centro {
+	font: 15px Courier;	
+	text-shadow: 1px 1px 1px black;
+	color: #D3D3D3;
+	width: 400px;
+	text-align: center;
+	margin-top: 25px;
+	margin-left: 25px;
+	margin-right: 50px;
+	float: left;
+
+}
+
+#fundo{
+
+	background-attachment: fixed;
+	background-size:100% 100%;
+}
+
+#conlunaEsquerda {
+	width: 210px;
+	margin-top: 160px;
+	left: 50px;
+	margin-left: 30px;
+	margin-right: 25px;
+	float: left;
+	font: 15px Courier;
+	text-align: center;
+}
+
+#colunaDireita {
+
+	width: 280px;
+	font: 15px Courier;
+	text-align: center;
+	text-shadow: 1px 1px 1px black;
+	color: white;
+	margin-top: 180px;	
+	margin-left: 10px;
+	float: left;
+
+
+}
+
+.form-control{
+	margin-bottom: 5px;
+}
+
+.concluida{
+	background-color: #20B2AA;
+	color: black;
+	font-weight: bold;
+	font-style: italic;	
+	text-shadow: 0px 0px 0px black;
+}
+
+#botaoRemove{
+	width: 20px;
+	height: 20px;
+	background: url(imagem/remove.png) no-repeat;
+
+}
+
+#contato{
+	text-align: center;
+	font: 15px Courier;
+	margin-top: 150px;
+	color: #C0C0C0;
+	text-shadow: 1px 1px 1px black;
+}
